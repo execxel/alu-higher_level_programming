@@ -1,3 +1,8 @@
 #!/usr/bin/python3
-def square_matrix_simple(matrix=[]):
-    return [[x ** 2 for x in row] for row in matrix]
+"""Define an empty Rectangle class for task 0."""
+
+
+class Rectangle:
+    """An empty Rectangle class."""
+    pass
+
