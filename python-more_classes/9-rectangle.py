@@ -72,4 +72,4 @@ class Rectangle:
     def square(cls, size=0):
         """Return a new Rectangle instance where width == height == size."""
         return cls(size, size)
-    
+
