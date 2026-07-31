@@ -12,6 +12,7 @@
 # Test 2: Empty list
 >>> my_list = MyList([])
 >>> my_list.print_sorted()
+[]
 
 # Test 3: Single element
 >>> my_list = MyList([42])
