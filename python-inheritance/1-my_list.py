@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Module: 1-my_list
-Description: MyList class that inherits from list and adds a print_sorted method
+Description: MyList class that inherits from list and adds a
+print_sorted method
 """
 
 
