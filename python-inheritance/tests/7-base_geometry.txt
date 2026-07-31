@@ -1,0 +1,148 @@
+"""
+Doctest for BaseGeometry class
+
+Test 1: Instantiation
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> print(type(bg))
+<class '7-base_geometry.BaseGeometry'>
+
+Test 2: Check dir()
+>>> bg = BaseGeometry()
+>>> attrs = dir(bg)
+>>> 'area' in attrs
+True
+>>> 'integer_validator' in attrs
+True
+
+Test 3: Valid integer_validator calls
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+Test 4: TypeError - string value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+
+Test 5: ValueError - zero value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+Test 6: ValueError - negative value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+
+Test 7: TypeError - float value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", 13.5)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 8: area() raises Exception
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[Exception] area() is not implemented
+
+Test 9: TypeError - boolean True
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 10: TypeError - boolean False
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", False)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 11: TypeError - tuple value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", (4,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 12: TypeError - list value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", [3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 13: TypeError - set value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", {3, 4})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 14: TypeError - None value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 15: TypeError - dict value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", {"key": "value"})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test 16: Valid positive integer - 1
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 1)
+
+Test 17: Valid positive integer - large number
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", 1000000)
+
+Test 18: Missing argument for integer_validator
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age")
+... except TypeError as e:
+...     print("Missing argument error")
+Missing argument error
+
+Test 19: Missing name argument
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator(value=5)
+... except TypeError as e:
+...     print("Missing argument error")
+Missing argument error
+
+Test 20: Multiple instantiations
+>>> bg1 = BaseGeometry()
+>>> bg2 = BaseGeometry()
+>>> bg1 is bg2
+False
+"""
