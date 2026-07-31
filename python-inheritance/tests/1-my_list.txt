@@ -1,0 +1,58 @@
+# doctest for MyList class and print_sorted method
+# import the class
+>>> MyList = __import__('1-my_list').MyList
+
+# Test 1: Basic usage with unsorted list
+>>> my_list = MyList([1, 4, 2, 3, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+# Test 2: Empty list
+>>> my_list = MyList([])
+>>> my_list.print_sorted()
+
+# Test 3: Single element
+>>> my_list = MyList([42])
+>>> my_list.print_sorted()
+[42]
+
+# Test 4: Already sorted list
+>>> my_list = MyList([1, 2, 3, 4, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test 5: Reverse sorted list
+>>> my_list = MyList([5, 4, 3, 2, 1])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test 6: List with duplicates
+>>> my_list = MyList([3, 1, 2, 1, 3, 2])
+>>> my_list.print_sorted()
+[1, 1, 2, 2, 3, 3]
+
+# Test 7: Negative numbers
+>>> my_list = MyList([-5, -2, -10, 0, 3])
+>>> my_list.print_sorted()
+[-10, -5, -2, 0, 3]
+
+# Test 8: Mixed positive and negative
+>>> my_list = MyList([2, -1, 5, -3, 0])
+>>> my_list.print_sorted()
+[-3, -1, 0, 2, 5]
+
+# Test 9: Original list remains unmodified
+>>> my_list = MyList([3, 1, 2])
+>>> my_list.print_sorted()
+[1, 2, 3]
+>>> print(my_list)
+[3, 1, 2]
+
+# Test 10: MyList instances are list subclasses
+>>> my_list = MyList([1, 2, 3])
+>>> isinstance(my_list, list)
+True
+>>> issubclass(MyList, list)
+True
