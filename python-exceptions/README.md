@@ -1,1 +1,1 @@
-My ALU Python directory
+Python project
