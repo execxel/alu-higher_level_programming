@@ -1,15 +1,7 @@
 #!/usr/bin/python3
-"""Define an empty Rectangle class for task 0."""
+"""Defines an empty class Rectangle."""
 
 
 class Rectangle:
-    """An empty Rectangle class."""
-
+    """Represents a rectangle."""
     pass
-
-
-
-
-
-
-

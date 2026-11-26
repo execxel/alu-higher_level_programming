@@ -1,29 +1,30 @@
 #!/usr/bin/python3
-"""
-Module: 10-student
-Description: Student class with to_json method supporting optional attribute
-filtering.
-"""
+"""Defines a class Student with attribute filtering."""
 
 
 class Student:
-    """Student with public attributes: first_name, last_name, age."""
+    """Represent a student."""
 
     def __init__(self, first_name, last_name, age):
+        """Initialize a new Student."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Return dict representation; filter keys if `attrs` is a list.
+        """Return a dictionary representation of the Student."""
+        if type(attrs) is list:
+            all_strings = True
+            for item in attrs:
+                if type(item) is not str:
+                    all_strings = False
+                    break
 
-        If `attrs` is not a list of strings, return all attributes.
-        """
-        obj_dict = self.__dict__.copy()
-        if isinstance(attrs, list):
-            filtered = {}
-            for k in attrs:
-                if k in obj_dict and isinstance(k, str):
-                    filtered[k] = obj_dict[k]
-            return filtered
-        return obj_dict
+            if all_strings:
+                result = {}
+                for attr in attrs:
+                    if hasattr(self, attr):
+                        result[attr] = getattr(self, attr)
+                return result
+
+        return self.__dict__

@@ -1,29 +1,35 @@
 #!/usr/bin/python3
-"""
-Module: 11-student
-Description: Student class with to_json and reload_from_json methods.
-"""
+"""Defines a class Student with JSON serialization and reloading."""
 
 
 class Student:
-    """Student with public attributes: first_name, last_name, age."""
+    """Represent a student."""
 
     def __init__(self, first_name, last_name, age):
+        """Initialize a new Student."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
-        """Return dict representation of the instance."""
-        return self.__dict__.copy()
+    def to_json(self, attrs=None):
+        """Return a dictionary representation of the Student."""
+        if type(attrs) is list:
+            all_strings = True
+            for item in attrs:
+                if type(item) is not str:
+                    all_strings = False
+                    break
+
+            if all_strings:
+                result = {}
+                for attr in attrs:
+                    if hasattr(self, attr):
+                        result[attr] = getattr(self, attr)
+                return result
+
+        return self.__dict__
 
     def reload_from_json(self, json):
-        """Replace attributes of the instance using `json` dict.
-
-        Args:
-            json (dict): Dictionary with attribute names and values.
-        """
-        if not isinstance(json, dict):
-            return
-        for k, v in json.items():
-            setattr(self, k, v)
+        """Replace all attributes of the Student instance."""
+        for key, value in json.items():
+            setattr(self, key, value)

@@ -1,3 +1,2 @@
--- 3. List tables
--- List all tables of the current database.
+-- Lists all tables of a database on the MySQL server.
 SHOW TABLES;

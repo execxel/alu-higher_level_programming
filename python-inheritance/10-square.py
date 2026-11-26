@@ -1,19 +1,13 @@
 #!/usr/bin/python3
-"""Square class that inherits from Rectangle."""
-
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""Defines a Rectangle subclass Square."""
 Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """A square class that inherits from Rectangle."""
+    """Represent a square."""
 
     def __init__(self, size):
-        """Initialize a Square with size.
-
-        Args:
-            size: The size of the square (must be positive integer).
-        """
+        """Initialize a new square."""
         self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size

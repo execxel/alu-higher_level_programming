@@ -1,24 +1,19 @@
 #!/usr/bin/python3
-"""
-Module: 12-pascal_triangle
-Description: Generate Pascal's triangle as a list of lists of integers.
-"""
+"""Defines a Pascal's Triangle function."""
 
 
 def pascal_triangle(n):
-    """Return a list of lists representing Pascal's triangle of size `n`.
-
-    Args:
-        n (int): Number of rows to generate. If n <= 0 returns an empty list.
-    """
+    """Return a list of lists representing Pascal's triangle of size n."""
     if n <= 0:
         return []
+
     triangle = [[1]]
-    for i in range(1, n):
-        prev = triangle[-1]
-        row = [1]
-        for j in range(1, i):
-            row.append(prev[j - 1] + prev[j])
-        row.append(1)
-        triangle.append(row)
+    while len(triangle) < n:
+        prev_row = triangle[-1]
+        new_row = [1]
+        for i in range(len(prev_row) - 1):
+            new_row.append(prev_row[i] + prev_row[i + 1])
+        new_row.append(1)
+        triangle.append(new_row)
+
     return triangle

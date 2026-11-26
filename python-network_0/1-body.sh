@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a GET request to the URL and displays the response body only if the status code is 200
-[ "$(curl -s -o /dev/null -w "%{http_code}" "$1")" = "200" ] && curl -s "$1"
+# Sends a GET request to a URL and displays the body of a 200 status response
+curl -sL -f "$1"

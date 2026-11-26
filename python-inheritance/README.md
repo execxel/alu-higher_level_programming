@@ -1,3 +1,1 @@
-# python-inheritance
-
-Inheritance and polymorphism exercises in Python.
+Inheritance in Python

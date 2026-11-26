@@ -1,3 +1,2 @@
--- 13. Score too low
--- Remove all records from second_table with a score <= 5.
-DELETE FROM second_table WHERE score <= 5;
+-- Removes all records with score <= 5 in second_table.
+DELETE FROM `second_table` WHERE `score` <= 5;
