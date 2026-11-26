@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Prints all City objects grouped by state from the database hbtn_0e_14_usa."""
+"""Prints all City objects grouped by state from db."""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
